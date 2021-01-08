@@ -22,7 +22,7 @@ public class App {
 		
 		/* System.out.println("Hello World!"); */
 		System.out.println("\n**************************************\n");
-		System.out.println("\tWelcome to TheDesk \n");
+		System.out.println("\tWelcome to The Desk \n");
 		System.out.println("**************************************");
 		optionsSelection();
 
@@ -30,8 +30,8 @@ public class App {
 
 	private static void optionsSelection() {
 		String[] arr = { "1. I wish to review my expenditure", "2. I wish to add my expenditure",
-				"3. I wish to delete my expenditure", "4. I wish to sort the expenditures",
-				"5. I wish to search for a particular expenditure", "6. Close the application" };
+				"3. I wish to delete all expenditure", "4. I wish to sort the expenditures",
+				"5. I wish to search for a particular expenditure", "6. I wish to delete an expediture","7. Close the application" };
 
 		for (String option : arr) {
 			System.out.println(option);
@@ -79,6 +79,12 @@ public class App {
 			optionsSelection();
 			break;
 		case 6:
+			System.out.println("Enter the expense you need to delete:\t");
+			int deleteValue = sc.nextInt();
+			deleteOneExpenses(expenses, deleteValue);
+			optionsSelection();
+			break;
+		case 7:
 			sc.close();
 			closeApp();
 			break;
@@ -101,6 +107,18 @@ public class App {
 			System.out.println("Expense " + searchExp + " was found in Expenditures \n");
 		} else {
 			System.out.println("Expense " + searchExp + " was NOT found in Expenditures \n");
+		}
+	}
+
+	private static void deleteOneExpenses(ArrayList<Integer> arrayList, int deleteExp) {
+		
+		// Complete the method
+		int deleteIndex = arrayList.indexOf(deleteExp);
+		if (arrayList.contains(deleteExp)) {
+			arrayList.remove(deleteIndex);
+			System.out.println("Expense " + deleteExp + " was found in Expenditures and removed\n");
+		} else {
+			System.out.println("Expense " + deleteExp + " was NOT found in Expenditures \n");
 		}
 	}
 
