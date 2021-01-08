@@ -1,6 +1,7 @@
 package com.hcl;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -72,7 +73,9 @@ public class App {
 			optionsSelection();
 			break;
 		case 5:
-			searchExpenses(expenses);
+			System.out.println("Enter the expense you need to search:\t");
+			int searchValue = sc.nextInt();
+			searchExpenses(expenses, searchValue);
 			optionsSelection();
 			break;
 		case 6:
@@ -88,14 +91,23 @@ public class App {
 
 	private static void closeApp() {
 		System.out.println("Closing your application... \nThank you!");
+		System.exit(0);
 	}
 
-	private static void searchExpenses(ArrayList<Integer> arrayList) {
-		System.out.println("Enter the expense you need to search:\t");
+	private static void searchExpenses(ArrayList<Integer> arrayList, int searchExp) {
+		
 		// Complete the method
+		if (arrayList.contains(searchExp)) {
+			System.out.println("Expense " + searchExp + " was found in Expenditures \n");
+		} else {
+			System.out.println("Expense " + searchExp + " was NOT found in Expenditures \n");
+		}
 	}
 
 	private static void sortExpenses(ArrayList<Integer> arrayList) {
-		// Complete the method. The expenses should be sorted in ascending order.
+
+		Collections.sort(arrayList);
+		System.out.println(arrayList + "\n" );
+		
 	}
 }
