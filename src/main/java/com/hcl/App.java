@@ -92,13 +92,12 @@ public class App {
 			case 7:
 				sc.close();
 				closeApp();
-				options = 0;
 				break;
 			default:
 				System.out.println("You have made an invalid choice!");
 				break;
 			}
-		} while (!(options == 0));
+		} while ( !( options == 7) );
 
 	}
 
